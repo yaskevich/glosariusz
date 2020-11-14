@@ -1,92 +1,187 @@
 <!doctype html>
 <html lang="pl">
 <head>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Glosariusz – słownik etymologiczny języka staropolskiego">
-    <title>Glosariusz: wyszukiwarka</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Glosariusz – słownik etymologiczny języka staropolskiego">
+    <meta name="author" content="Alyaxey Yaskevich">
+	<link rel="icon" type="image/png" href="pl.png" />
+    <title>Glosariusz staropolski</title>
     <!-- <script src="../js/handlebars.js"></script> -->
-    <script src="jquery-1.11.3.min.js"></script>
-    <script src="typeahead/typeahead.bundle.js?v.1"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <!-- <script src="jquery-migrate-3.0.0.js"></script> -->
+    <!-- <script src="jquery-1.11.3.min.js"></script> -->
+    <script src="jquery.touch.min.js"></script>
+	<!-- https://github.com/ajlkn/jquery.touch -->
+    <!-- <script src="jquery.mobile-1.5.0-alpha.1.min.js"></script> -->
+    <!-- <script src="jquery.mobile-1.4.5.min.js"></script> -->
+    <script src="typeahead/typeahead.bundle.js"></script>
+    <script src="jquery.spoiler.min.js"></script>
+    <!-- <script src="history.js"></script> -->
+    <!-- <script src="history.adapter.jquery.js"></script> -->
 	<script src="glos.js"></script>
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="icon" type="image/x-icon" href="favicon.ico?2">
 	<link rel="stylesheet" href="pure/pure-min.css">
-	<link rel="stylesheet" href="examples.css">
-	<link rel="stylesheet" href="menu.css">
+	<link rel="stylesheet" href="pure/grids-responsive-min.css">
+	<!-- <link rel="stylesheet" href="examples.css"> -->
+	<!-- <link rel="stylesheet" href="menu.css"> -->
 	<link rel="stylesheet" href="modal.css">
-	<link rel="stylesheet" href="glos.css">
+	<link rel="stylesheet" href="glos.css?v7">
+	<link rel="stylesheet" href="hint.min.css">
+	<link rel='stylesheet' href='css/font-awesome.min.css'> 
+	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection"/> 
 </head>
 <body>
-<div class="custom-menu-wrapper">
-    <div class="pure-menu custom-menu custom-menu-top">
-        <a href="#" class="pure-menu-heading custom-menu-brand">Glosariusz</a>
-        <a href="#" class="custom-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
-    </div>
-    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
-        <div class="custom-menu-screen"></div>
-        <ul class="pure-menu-list">
-            <!-- <li class="pure-menu-item"><a href="#" class="pure-menu-link">Strona Główna</a></li> -->
-            <li class="pure-menu-item"><a href="#" id="linkabout" class="pure-menu-link">O projekcie</a></li>
-            <li class="pure-menu-item"><a href="#" id="linkcontact" class="pure-menu-link">Kontakt</a></li>
-            <!-- 
-				<li class="pure-menu-item"><a href="#" class="pure-menu-link">Blog</a></li>
-				<li class="pure-menu-item"><a href="#" class="pure-menu-link">Wang</a></li>
-             -->
-			 <!-- <li class="pure-menu-item"><a href="#" id="unamelink" class="pure-menu-link"></a></li> -->
-            <!-- <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">→ Wyjść</a></li>  -->
-        </ul>
-    </div>
-</div>
-
-
-<div id="blockabout" class="main hidden" >
-	<h2>Wersja elektroniczna słownika «Glosariusz staropolski».</h2>
-	<p><b>«Glosariusz staropolski»</b> – dydaktyczny słownik etymologiczny. </p>
-	<p>Redakcja naukowa: <strong>Wanda Decyk-Zięba</strong> i <strong>Stanisław Dubisz</strong>. Warszawa: Wydawnictwa Uniwersytetu Warszawskiego, 2008. – 300 stron.</p>
-	<!-- <p>Autorzy: Wanda Decyk-Zięba, Krystyna Długosz-Kurczabowa, Stanisław Dubisz, Zygmunt Gałecki, Justyna Garczyńska, Halina Karaś, Alina Kępińska, Anna Pasoń, Izabela Stąpor, Barbara Taras, Izabela Winiarska.</p> -->
-	<hr/>
-	
-	<p>Projekt elektroniczny (opracowanie / programowanie): <span title="Aleksy Jaśkiewicz" style="font-weight:bold;">Alyaxey Yaskevich</span> dla <strong><a href="http://www.zhjpid.uw.edu.pl/">Zakładu Historii Języka Polskiego i Dialektologii UW</a></strong>.</p>
-	
-	<p><strong><span style="color:red;">Uwaga!</span> Obecnie to jest dopiero <span style="color:red;">prototyp projektu</span>.</strong><br/> Zawiera błędy w opracowaniu haseł, zaś interfejs aplikacji internetowej jest w stanie projektowania.</p>
-	
-	<!-- <p>Szukając przepisu na prawdziwy piernik natrafiłam właśnie na piernik staropolski. Czytałam o nim mnóstwo pozytywnych opinii, więc postanowiłam go upiec. Piernik jest bardzo smaczny, klasyczny, wymagający leżakowania, nie jest wilgotny, jest zbity jak prawdziwy piernik i jest miękki, ale nie puszysty. Najczęściej jest przekładany powidłami, marcepanem lub masami.</p> -->
-	<p style="font-size: smaller;"><i>Styczeń 2016</i></p>
-</div>
-
-<div id="blockcontact" class="main hidden" >
-	<p>
-		alyaxey.yaskevich@gmail.com
-	</p>
-	<p>
-		<a href="http://www.facebook.com/alyaxey.yaskevich">facebook</a>
-	</p>
-	<!-- <p>Szukając przepisu na prawdziwy piernik natrafiłam właśnie na piernik staropolski. Czytałam o nim mnóstwo pozytywnych opinii, więc postanowiłam go upiec. Piernik jest bardzo smaczny, klasyczny, wymagający leżakowania, nie jest wilgotny, jest zbity jak prawdziwy piernik i jest miękki, ale nie puszysty. Najczęściej jest przekładany powidłami, marcepanem lub masami.</p> -->
-</div>
-
-<div id="blocksearch" class="main">
-    <!-- <h1>Wyszukiwarka do «Glosariusza»</h1> -->
-	<div id="prefetch">
-		<input id="tasearch" class="typeahead" type="text" placeholder="Wpisz tu wyraz lub część">
-	</div>
-	<div id="entry">
-		<span id="title"></span>
-		<div id="meta">
-			<span id="qty"></span>
-			<span id="srclist"></span>
+<div class="cnt">
+	<div class="custom-menu-wrapper">
+		<div class="pure-menu custom-menu custom-menu-top">
+			<a href="#" class="pure-menu-heading custom-menu-brand">Glosariusz</a>
+			<a href="#" class="custom-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
 		</div>
-		<div id="entry_body"></div>
-		<div id="ref_targets"></div>
-		<div id="auth_div">
-			<span id="auth"></span>
-			<span id="pnum"></span>
+		<div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
+			<div class="custom-menu-screen"></div>
+			<ul class="pure-menu-list">
+				<li class="pure-menu-item"><a href="#" class="pure-menu-link"></a></li>
+				<li class="pure-menu-item"><a href="#" id="linkcontact" class="pure-menu-link">Indeks</a></li>
+				<li class="pure-menu-item"><a href="#" id="linkabout" class="pure-menu-link">O projekcie</a></li>
+			</ul>
 		</div>
 	</div>
-	<div>
-		<hr/>
-		<!-- Użytkownik: <span id="unamespan" style="font-weight:bold;"></span> -->
+	<div class="wrapper">
+		<div id="blockabout" class="main hidden" >
+			<h2>Wersja elektroniczna słownika «Glosariusz staropolski»</h2>
+			<h3>Projekt <a class="unlink" href="http://www.zhjpid.uw.edu.pl/" target="_blank">Zakładu Historii Języka Polskiego i Dialektologii UW</a>.</h3>
+			Powstał na podstawie książki:
+			<div class="book">
+			<p><b>«Glosariusz staropolski»</b> – dydaktyczny słownik etymologiczny. 
+			
+			<!-- </p> -->
+			<!-- <p> -->
+			Redakcja naukowa: <strong>Wanda Decyk-Zięba</strong> i <strong>Stanisław Dubisz</strong>.<br/>Warszawa: Wydawnictwa Uniwersytetu Warszawskiego, 2008. – 300 stron.</p>
+			<!-- <p>Autorzy: Wanda Decyk-Zięba, Krystyna Długosz-Kurczabowa, Stanisław Dubisz, Zygmunt Gałecki, Justyna Garczyńska, Halina Karaś, Alina Kępińska, Anna Pasoń, Izabela Stąpor, Barbara Taras, Izabela Winiarska.</p> -->
+			<!-- <hr/> -->
+			</div>
+			<p>Przetwarzanie danych oraz programowanie strony: <span title="Aleksy Jaśkiewicz" style="font-weight:bold;"><a class="unlink" href="https://yaskevich.com/" target="_blank">Alyaxey Yaskevich</span></a> <small>(Aleksy Jaśkiewicz)</small>.</p>
+			
+			<div class="pure-g">
+				<div class="pure-u-lg-1-2 pure-u-1 pure-xl-1-2 pure-md-1-2 pure-sm-1">
+					<div class="l-box">
+						<h4 class="unaccented">Kontakt na temat treści wydania</h4>
+						<p>Dr. hab. <strong>Wanda Decyk-Zięba</strong></p>
+						<p><i class="fa fa-envelope-o" title="e-mail"></i>&nbsp;wdecyk@uw.edu.pl</p>
+					 </div>
+				</div>
+
+				<div class="pure-u-lg-1-2 pure-u-1 pure-xl-1-2 pure-md-1-2 pure-sm-1">
+					<div class="l-box">
+						<h4 class="unaccented">Kontakt na temat projektu elektronicznego</h4>
+						<p><i class="fa fa-facebook-official" aria-hidden="true"></i>&nbsp;<strong><a href="http://www.facebook.com/alyaxey.yaskevich" target="_blank">Alyaxey Yaskevich</a></strong></p>
+						<p><i class="fa fa-envelope-o" title="e-mail"></i>&nbsp;alyaxey.yaskevich@gmail.com</p>
+						<p></p>
+					 </div>
+				</div>
+			</div>
+			
+			
+			<!-- <p>Przetwarzanie danych oraz programowanie strony: <span title="Aleksy Jaśkiewicz" style="font-weight:bold;">Alyaxey Yaskevich</span> <small>(Aleksy Jaśkiewicz)</small>.</p> -->
+			<!-- <div class="pure-g"> -->
+				<!-- <div class="pure-u-lg-1-2 pure-u-1 pure-xl-1-2 pure-md-1-2 pure-sm-1"> -->
+					<!-- <div class="unaccented"> -->
+						<!-- Kontakt na temat treści wydania -->
+					<!-- </div> -->
+					 <!-- <ul class="somelist"> -->
+						<!-- <li><a href="http://www.zhjpid.uw.edu.pl/?m=pracow&prac=decyk" target="_blank">Dr. hab. <strong>Wanda Decyk-Zięba</a></strong></li> -->
+						<!-- <li><i class="fa fa-envelope-o" title="e-mail"></i>&nbsp;wdecyk@uw.edu.pl</li>			 -->
+					<!-- </ul> -->
+				<!-- </div> -->
+			<!-- <div class="pure-u-lg-1-2 pure-u-1 pure-xl-1-2 pure-md-1-2 pure-sm-1"> -->
+				<!-- <div class="unaccented"> -->
+					<!-- Kontakt na temat projektu elektronicznego -->
+				 <!-- </div> -->
+					 <!-- <ul class="somelist"> -->
+						<!-- <li><strong><a href="https://yaskevich.com/" target="_blank">Alyaxey Yaskevich</a></strong></li>		 -->
+						<!-- <li><i class="fa fa-envelope-o" title="e-mail"></i>&nbsp;alyaxey.yaskevich@gmail.com</li> -->
+						<!-- <li><i class="fa fa-facebook-official" aria-hidden="true"></i>&nbsp;<strong><a href="http://www.facebook.com/alyaxey.yaskevich" target="_blank">Alyaxey Yaskevich</a></strong></li> -->
+					<!-- </ul> -->
+			<!-- </div>	 -->
+			<hr/>
+			<!-- <p><strong><span style="color:red;">Uwaga!</span> Obecnie to jest dopiero <span style="color:red;">prototyp projektu</span>.</strong><br/> Zawiera błędy w opracowaniu haseł, zaś interfejs aplikacji internetowej jest w stanie projektowania.</p> -->
+			<p><strong>Obecnie to jest dopiero prototyp projektu.</strong> Zawiera błędy w opracowaniu haseł. <small>(Zródłem danych został uszkodzony plik PDF.)</small></p>
+			<!-- <p>Na danym etapie rozwinięcie projektu zostało wstrzymane z powodu braku funduszy.</p> -->
+			
+			<!-- <p>Szukając przepisu na prawdziwy piernik natrafiłam właśnie na piernik staropolski. Czytałam o nim mnóstwo pozytywnych opinii, więc postanowiłam go upiec. Piernik jest bardzo smaczny, klasyczny, wymagający leżakowania, nie jest wilgotny, jest zbity jak prawdziwy piernik i jest miękki, ale nie puszysty. Najczęściej jest przekładany powidłami, marcepanem lub masami.</p> -->
+			<!-- <p style="font-size: smaller;"><i>Styczeń 2016</i></p> -->
+			<p style="font-size: smaller;"><i>Versja 0.3 α, 30 wrześńia 2016 r.</i></p>
+			<p style="font-size: smaller;"><i>Versja 0.4 α, czerwiec 2017 r. (drobne zmiany w interfejsie)</i></p>
+		</div>
+		<div id="blockcontact" class="main hidden" >
+			<!-- <h2>Klasyfikacja haseł, statystyka oraz warunki dostępu</h2> -->
+			<!-- <h2>Opis tresci</h2> -->
+			<h2>Indeks</h2>
+			<p>
+				<!-- Rozdiał będzie dostępny pózniej. -->
+			</p>
+			<div id="index">
+			</div>
+			<!-- <p>Szukając przepisu na prawdziwy piernik natrafiłam właśnie na piernik staropolski. Czytałam o nim mnóstwo pozytywnych opinii, więc postanowiłam go upiec. Piernik jest bardzo smaczny, klasyczny, wymagający leżakowania, nie jest wilgotny, jest zbity jak prawdziwy piernik i jest miękki, ale nie puszysty. Najczęściej jest przekładany powidłami, marcepanem lub masami.</p> -->
+		</div>
+		<div id="blocksearch" class="main">
+			<!-- <h1>Wyszukiwarka do «Glosariusza»</h1> -->
+			<div id="prefetch">
+				<div class="imgdiv"></div>
+				<!-- <img src="Alex_K_Kingdom_of_Poland-flag.svg"/> -->
+				<img class="arms" src="Coat_of_Arms_of_the_Polish_Crown.svg"/>
+				<input id="tasearch" class="typeahead" type="text" placeholder="Wpisz tu wyraz lub część">
+			</div>
+			<div id="entry" style="visibility:hidden;">
+				<span id="title"></span>
+				<div id="entry_body"></div>
+				<div id="ref_targets"></div>
+				<div id="meta">
+					Użyć: <span id="qty"></span>  w zródłach <span id="srclist"></span>
+				</div>		
+				<div id="auth_div">
+					<span class='hint--bottom' aria-label='autor artykułu'><i class="fa fa-pencil \"></i></span> <span id="auth"></span>
+					
+					<span class='hint--bottom' aria-label='strona w książcy papierowej'><i class="fa fa-bookmark-o"></i>&nbsp;Strona <span id="pnum"></span></span>
+					
+					<div class="pure-g">
+					<div class="pure-u-1-2">
+						<button class="pure-button" id="wordPre"><i class="fa fa-arrow-left"></i></button>
+					</div>
+					<div class="pure-u-1-2" style="text-align:right;">
+						<button class="pure-button" id="wordNext"><i class="fa fa-arrow-right"></i></button>
+					</div>
+					</div>
+					<!-- poprzednie -->
+					<!-- <button class="pure-button pure-button-disabled">hasło</button> -->
+					<!-- następne -->
+				</div>
+				<div id="centerwrapper" style="text-align: center">    
+				</div>
+				<div id="id" style="color:white;height: 100px;">
+				</div>
+			</div>
+			<div>
+				<!-- <hr/> -->
+				<!-- Użytkownik: <span id="unamespan" style="font-weight:bold;"></span> -->
+			</div>
+		</div>
 	</div>
+
+
 </div>
+	<!-- <div class="footer"> -->
+		<!-- <div class="legal pure-g"> -->
+			<!-- <div class="pure-u-1 u-sm-1-2"> -->
+				<!-- <p class="legal-copyright"> -->
+					<!-- © 2017 Yahoo! Inc. All rights reserved. -->
+					<!-- © 2016, Glosariusz staropolski. -->
+				<!-- </p> -->
+			<!-- </div> -->
+		<!-- </div> -->
+	<!-- </div> -->
 <script src="ga.js"></script>
 </body>
 </html>
