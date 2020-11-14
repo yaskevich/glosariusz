@@ -156,7 +156,7 @@ a{
 	
 	overflow-y:auto; 
 	overflow-x:hidden;
-	max-height:800px;
+	max-height:400px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -194,7 +194,7 @@ a{
 	/* pure-menu-heading custom-menu-brand */
   .cnt{
 	  /* margin-left:200px;  */
-	   position: fixed;
+	   /* position: fixed; */
     /* center the element */
     right: 0;
     left: 0;
@@ -320,7 +320,8 @@ a{
 .tt-hint {
   /* width: 396px; */
   /* margin-top:-2em; */
-  width: 98%;
+  /* width: 100%; */
+  
   /* max-width:396px; */
   
   height: 30px;

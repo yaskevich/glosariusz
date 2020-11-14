@@ -3,7 +3,7 @@ use strict;
 use utf8;
 use 5.010;
 # use AnyEvent; # libanyevent-perl
-use EV; # libev-perl
+# use EV; # libev-perl
 use Mojolicious::Lite;
 use Mojo::Log;
 use Scalar::Util 'looks_like_number';
