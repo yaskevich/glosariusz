@@ -1,6 +1,9 @@
-RewriteEngine on
- # Rewrite only if the request isn't for a real file, directory, or symlink.
- RewriteCond %{REQUEST_FILENAME} !-f
- RewriteCond %{REQUEST_FILENAME} !-l
- RewriteCond %{REQUEST_FILENAME} !-d
- RewriteRule ^(.*)$ index.pl/$1 [L]
+DirectoryIndex glos.pl
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond $1 !^(glos\.pl|uploads|robots\.txt|favicon\.ico)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /glos.pl/$1 [L,QSA] 
+</IfModule>

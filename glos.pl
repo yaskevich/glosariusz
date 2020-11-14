@@ -13,7 +13,7 @@ use Data::Dumper;
 use Mojolicious::Plugin::Authentication;
 use Mojolicious::Plugin::RemoteAddr;
 use Mojolicious::Plugin::Config;
-use HTTP::BrowserDetect; # libhttp-browserdetect-perl
+use HTTP::BrowserDetect; # libtest-most-perl libhttp-browserdetect-perl 
 # use DBIx::Connector; # libdbix-connector-perl
 
 
@@ -21,6 +21,12 @@ use HTTP::BrowserDetect; # libhttp-browserdetect-perl
 
 # Disable IPv6, epoll and kqueue
 # BEGIN { $ENV{MOJO_NO_IPV6} = $ENV{MOJO_POLL} = 1 }
+
+# my $log = Mojo::Log->new(path => $cfg->{log});
+# my $log = Mojo::Log->new(path => "/var/www/projects/glos/log.txt");
+my $log = Mojo::Log->new(path => "log.txt");
+app->log($log); # tell app to use new log instance
+
 my $cfg = plugin Config => {file => 'glos.conf'};
 plugin('RemoteAddr');
 app->config(hypnotoad => {
@@ -31,7 +37,6 @@ app->config(hypnotoad => {
 app->secrets(['e2280295304705fb48ae44331dd335e8fac8593956da912e8fd1a63377aad2d0']);
 app->defaults(gzip => 1);
 app->mode($cfg->{mode});
-my $log = Mojo::Log->new(path => $cfg->{log});
 
 app->attr(dbh => sub { # dbh attribute
 	my $c = shift;
@@ -61,12 +66,15 @@ hook before_dispatch => sub {
 helper log => sub {
 	my $c = shift;
 	my $text = shift;
-	my $uid = $c->current_user->{'id'};
-	if ($uid > 1){
-		# my $r_ip = $c->tx->remote_address;
-		my $r_ip = $c->remote_addr;
-		$log->info($r_ip.' {'.$uid.'} '.$c->current_user->{'name'}." • ".$text);
-	}
+	my $r_ip = $c->remote_addr;
+	$log->info($r_ip." • ".$text);
+	
+	# my $uid = $c->current_user->{'id'};
+	# if ($uid > 1){
+		# # my $r_ip = $c->tx->remote_address;
+		# my $r_ip = $c->remote_addr;
+		# $log->info($r_ip.' {'.$uid.'} '.$c->current_user->{'name'}." • ".$text);
+	# }
 };
 
 plugin 'authentication', {                 
@@ -126,11 +134,12 @@ plugin 'authentication', {
 
 any '/' => sub {                
     my $c = shift;
-	($c->is_user_authenticated or $c->authenticate($c->req->param('u'), $c->req->param('p')))
-		? 
-		$c->reply->static('index.html') 
-		:
-		$c->render(template => 'login', status => 200);
+	$c->reply->static('index.html');
+	# ($c->is_user_authenticated or $c->authenticate($c->req->param('u'), $c->req->param('p')))
+		# ? 
+		# $c->reply->static('index.html') 
+		# :
+		# $c->render(template => 'login', status => 200);
 };
 
 
@@ -142,13 +151,15 @@ get '/logout' => (authenticated => 1) => sub {
 	$c->redirect_to('/');
 };
 
-get '/user' => (authenticated => 1) => sub {
+# get '/user' => (authenticated => 1) => sub {
+get '/user' => sub {
     my $c = shift;
 	$c->render(text => $c->current_user->{'name'});
 };
 
 
-any '/data.json' => (authenticated => 1) => sub {
+# any '/data.json' => (authenticated => 1) => sub {
+any '/data.json' => sub {
 	my $c = shift;
 	my $y = $c->req->params->[0];
 	my $q = $y;
@@ -159,7 +170,8 @@ any '/data.json' => (authenticated => 1) => sub {
 	$c->render(json => $ref );
 };
 
-any '/datum.json' => (authenticated => 1) => sub {
+# any '/datum.json' => (authenticated => 1) => sub {
+any '/datum.json' => sub {
 	
 	my $c = shift;
 	my $q = $c->req->params->[0];
@@ -174,7 +186,8 @@ any '/datum.json' => (authenticated => 1) => sub {
 	$c->render(json => $ref );
 };
 
-any '/def.json' => (authenticated => 1) => sub {
+# any '/def.json' => (authenticated => 1) => sub {
+any '/def.json' => sub {
 	
 	my $c = shift;
 	my $q = $c->req->params->[0];
