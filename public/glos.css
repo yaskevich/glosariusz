@@ -1,0 +1,56 @@
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+body,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+    /* Set you're content font stack here: */
+    /* font-family: 'PT Sans', Georgia, Times, "Times New Roman", serif; */
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+.main {
+    padding: 2em;
+    color: black;
+}
+#entry {
+	margin-top:20px;
+}
+#qty {
+	margin-left:20px;
+	background-color: yellow;
+}
+#srclist {
+	margin-left:5px;
+	background-color: lightgreen;
+}
+#auth {
+/*
+	background-color: purple;
+	color: white;
+*/	
+	font-weight:bold;
+	color:red;
+}
+#auth_div {
+	/*
+	margin-left:5px;
+	*/
+
+}
+#entry div {
+margin-top: 10px;
+}
+#pnum {
+	font-size: smaller; 
+}
+#meta {
+	font-size: smaller; 
+	
+}
+#title {
+	font-size: bigger; 
+	font-weight:bold;	
+}

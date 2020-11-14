@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Glosariusz – słownik etymologiczny języka staropolskiego">
+    <title>Glosariusz: wyszukiwarka</title>
+    <!-- <script src="../js/handlebars.js"></script> -->
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="typeahead/typeahead.bundle.js?v.1"></script>
+	<script src="glos.js"></script>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" href="pure/pure-min.css">
+	<link rel="stylesheet" href="examples.css">
+	<link rel="stylesheet" href="menu.css">
+	<link rel="stylesheet" href="modal.css">
+	<link rel="stylesheet" href="glos.css">
+</head>
+<body>
+<div class="custom-menu-wrapper">
+    <div class="pure-menu custom-menu custom-menu-top">
+        <a href="#" class="pure-menu-heading custom-menu-brand">Glosariusz</a>
+        <a href="#" class="custom-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
+    </div>
+    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
+        <div class="custom-menu-screen"></div>
+        <ul class="pure-menu-list">
+            <!-- <li class="pure-menu-item"><a href="#" class="pure-menu-link">Strona Główna</a></li> -->
+            <li class="pure-menu-item"><a href="#" id="linkabout" class="pure-menu-link">O projekcie</a></li>
+            <li class="pure-menu-item"><a href="#" id="linkcontact" class="pure-menu-link">Kontakt</a></li>
+            <!-- 
+				<li class="pure-menu-item"><a href="#" class="pure-menu-link">Blog</a></li>
+				<li class="pure-menu-item"><a href="#" class="pure-menu-link">Wang</a></li>
+             -->
+			 <!-- <li class="pure-menu-item"><a href="#" id="unamelink" class="pure-menu-link"></a></li> -->
+            <!-- <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">→ Wyjść</a></li>  -->
+        </ul>
+    </div>
+</div>
+
+
+<div id="blockabout" class="main hidden" >
+	<h2>Wersja elektroniczna słownika «Glosariusz staropolski».</h2>
+	<p><b>«Glosariusz staropolski»</b> – dydaktyczny słownik etymologiczny. </p>
+	<p>Redakcja naukowa: <strong>Wanda Decyk-Zięba</strong> i <strong>Stanisław Dubisz</strong>. Warszawa: Wydawnictwa Uniwersytetu Warszawskiego, 2008. – 300 stron.</p>
+	<!-- <p>Autorzy: Wanda Decyk-Zięba, Krystyna Długosz-Kurczabowa, Stanisław Dubisz, Zygmunt Gałecki, Justyna Garczyńska, Halina Karaś, Alina Kępińska, Anna Pasoń, Izabela Stąpor, Barbara Taras, Izabela Winiarska.</p> -->
+	<hr/>
+	
+	<p>Projekt elektroniczny (opracowanie / programowanie): <span title="Aleksy Jaśkiewicz" style="font-weight:bold;">Alyaxey Yaskevich</span> dla <strong><a href="http://www.zhjpid.uw.edu.pl/">Zakładu Historii Języka Polskiego i Dialektologii UW</a></strong>.</p>
+	
+	<p><strong><span style="color:red;">Uwaga!</span> Obecnie to jest dopiero <span style="color:red;">prototyp projektu</span>.</strong><br/> Zawiera błędy w opracowaniu haseł, zaś interfejs aplikacji internetowej jest w stanie projektowania.</p>
+	
+	<!-- <p>Szukając przepisu na prawdziwy piernik natrafiłam właśnie na piernik staropolski. Czytałam o nim mnóstwo pozytywnych opinii, więc postanowiłam go upiec. Piernik jest bardzo smaczny, klasyczny, wymagający leżakowania, nie jest wilgotny, jest zbity jak prawdziwy piernik i jest miękki, ale nie puszysty. Najczęściej jest przekładany powidłami, marcepanem lub masami.</p> -->
+	<p style="font-size: smaller;"><i>Styczeń 2016</i></p>
+</div>
+
+<div id="blockcontact" class="main hidden" >
+	<p>
+		alyaxey.yaskevich@gmail.com
+	</p>
+	<p>
+		<a href="http://www.facebook.com/alyaxey.yaskevich">facebook</a>
+	</p>
+	<!-- <p>Szukając przepisu na prawdziwy piernik natrafiłam właśnie na piernik staropolski. Czytałam o nim mnóstwo pozytywnych opinii, więc postanowiłam go upiec. Piernik jest bardzo smaczny, klasyczny, wymagający leżakowania, nie jest wilgotny, jest zbity jak prawdziwy piernik i jest miękki, ale nie puszysty. Najczęściej jest przekładany powidłami, marcepanem lub masami.</p> -->
+</div>
+
+<div id="blocksearch" class="main">
+    <!-- <h1>Wyszukiwarka do «Glosariusza»</h1> -->
+	<div id="prefetch">
+		<input id="tasearch" class="typeahead" type="text" placeholder="Wpisz tu wyraz lub część">
+	</div>
+	<div id="entry">
+		<span id="title"></span>
+		<div id="meta">
+			<span id="qty"></span>
+			<span id="srclist"></span>
+		</div>
+		<div id="entry_body"></div>
+		<div id="ref_targets"></div>
+		<div id="auth_div">
+			<span id="auth"></span>
+			<span id="pnum"></span>
+		</div>
+	</div>
+	<div>
+		<hr/>
+		<!-- Użytkownik: <span id="unamespan" style="font-weight:bold;"></span> -->
+	</div>
+</div>
+<script src="ga.js"></script>
+</body>
+</html>
