@@ -1,7 +1,11 @@
 {
   "name": "glosariusz",
   "version": "1.0.0",
-  "description": "",
+  "description": "web servers (Perl and JS), prcoessing data and scripts for Old Polish Glossary project",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yaskevich/glosariusz"
+  },
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -12,7 +16,7 @@
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
-    "sqlite": "^4.0.15",
+    "sqlite": "^4.0.17",
     "sqlite3": "^5.0.0"
   }
 }
