@@ -1,0 +1,65 @@
+1. Spisskrotow nie opdowiada
+"WDZ": "Wanda Decyk-Zięba" natomiast w tekscie WD
+"IWG": "Izabela Winiarska-Gorska", w tekscie IW-G
+
+=============
+alibo
+Δ zn. «albo, lub, czy to»: Ustawiamy, aby rycerz każdy alibo prosty panosza pod pewną podniesioną chorągwią na jej stanie stał [K S, 124, 11]. 
+//fixed in DB not in files!!!
+-> KŚ
+
+=========================
+[cf: nakarmić, pokarm, pokarmienie.
+Δ por. kto, ktokoli, le]
+siemo«osoba
+
+=Problem with sceitific content
+
+------------
+barzo
+psł. *brzo «szybko, ˚ prędko»; ogsłow. – czes. brzo «wcześnie», ros. bórzo, sch. b ^ rz «szybki, ˚ skory», scs. brъzo.
+Разве в русском это нормлаьное слово?
+------------
+
+=============================================
+=problems with original consistency
+
+
+# maybe wrong place of acute: psl. č́ , p. 41
+
+Z wirzchem okrągłem piszy b 
+
+noc - no qty 
+I przepaść - must be II
+stary - no qty
+
+(sie) zob. I (się), II (się), III (się).
+? <- author, changed to WD
+
+por. I, III (sie) -> por. I (sie˛), III (sie)
+wieść (2) [Kgn] -> II wieść (2) [Kgn]
+
+
+Δ</span>roz-</p><p class="page273"></p>
+[p:274]
+<p>wój: wyraz wyszedł z użycia w XIX w.</p><p class="s1"><br/>
+- "roz" moved to next page
+
+
+ chłop vs chłopi : dif authors. dif etymology desc
+ wobec ros. i błr. szto : AJ ros czto
+
+ == changes
+was:
+ in text must be superscript of u̯
+ now:
+ ʷ
+---------------------
+p. 105
+etym. pie. ‘*i̯o
+etym. pie. *i̯o
+------------------
+
+== advice
+use minsus instead hyphen when stems or prefixes l-, rob-
+переносы это писец
