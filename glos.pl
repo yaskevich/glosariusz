@@ -38,7 +38,7 @@ app->attr(dbh => sub { # dbh attribute
 	my $c = shift;
 	my $dbh = DBI->connect("dbi:SQLite:".$cfg->{db},"","", {sqlite_unicode => 1,  AutoCommit => 0, RaiseError => 1, sqlite_use_immediate_transaction => 1,});
 
-	$log->info( $dbh ? "DB connect": "DB error"); 
+	# $log->info( $dbh ? "DB connect": "DB error"); 
 	return $dbh;
 	
 	# my $conn = DBIx::Connector->new("dbi:SQLite:".$cfg->{db}, "", "", {sqlite_unicode => 1,  AutoCommit => 0, RaiseError => 1});
@@ -61,9 +61,10 @@ hook before_dispatch => sub {
 
 helper log => sub {
 	my $c = shift;
-	my $text = shift;
-	my $r_ip = $c->remote_addr;
-	$log->info($r_ip." • ".$text);
+	my $text = shift;	
+	my $r_ip = $c->remote_addr||"";
+	my $info = $text||"";
+	$log->info($r_ip." • ".$info);
 	
 	# my $uid = $c->current_user->{'id'};
 	# if ($uid > 1){
@@ -186,7 +187,7 @@ any '/api/data.json' => sub {
 	my $y = $c->req->params->[0];
 	my $q = $y;
 	$q =~ s/[^A-Za-z\sĄąŻżŹźŚśĆćŃńŁłĘęÓó\!]//g;
-	$c->log('Typed: '.$y.' → '.$q);
+	# $c->log('Typed: '.$y.' → '.$q);
 	my $dbh = $c->app->dbh;
 	my $ref = $dbh->selectall_arrayref("select id, title from slownik where title like '".$q."%'", { Slice => {} }  );
 	$c->render(json => $ref );

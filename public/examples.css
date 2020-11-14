@@ -77,7 +77,7 @@ p + p {
 .tt-query,
 .tt-hint {
   /* width: 396px; */
-  /* margin-top:-2em; */
+  margin-top:-2em;
   width: 100%;
   max-width:396px;
   
