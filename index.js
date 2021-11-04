@@ -14,7 +14,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 (async () => {
     const db = await open({ filename: path.join(__dirname, 'glos.db'), driver: sqlite3.cached.Database })
 	const app = express();
-	const port = process.env.PORT || 3020;
+	const port = process.env.PORT || 8080;
 	const index = fs.readFileSync(path.join(__dirname, 'public', 'index.html'), {encoding:'utf8', flag:'r'}); 
 	
 	const words = await db.all('SELECT id, title FROM slownik');
