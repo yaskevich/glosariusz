@@ -6,7 +6,6 @@ module.exports = {
         watch: false,
         instance_var: 'INSTANCE_ID',
         env: {
-            "PORT": 3020,
             "NODE_ENV": "production"
         }
       }
